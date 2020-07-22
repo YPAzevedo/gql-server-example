@@ -6,8 +6,8 @@ function startServer({ typeDefs, resolvers }) {
     typeDefs,
     resolvers,
     context: {
-      pubsub
-    }
+      pubsub,
+    },
   });
 
   server

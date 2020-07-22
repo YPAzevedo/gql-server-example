@@ -9,15 +9,14 @@ export default {
   },
   Mutation: {
     createPost: async (_, { id, data }) =>
-      await prisma.user.update({
-        where: { id },
+      await prisma.post.create({
         data: {
-          posts: {
-            create: data,
+          ...data,
+          author: {
+            connect: {
+              id,
+            },
           },
-        },
-        include: {
-          posts: true,
         },
       }),
     updatePost: async (_, { id, data }) =>
